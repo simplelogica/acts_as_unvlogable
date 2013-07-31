@@ -23,6 +23,10 @@ class VgYoutube
     @details.thumbnails.first.url
   end
 
+  def thumbnails
+    @details.thumbnails
+  end
+
   def duration
     @details.duration
   end

@@ -32,7 +32,11 @@ class UnvlogIt
   def thumbnail
     @object.thumbnail rescue nil
   end
-  
+
+  def thumbnails
+    @object.thumbnails rescue nil
+  end
+
   def duration # duration is in seconds
     @object.duration rescue nil
   end
