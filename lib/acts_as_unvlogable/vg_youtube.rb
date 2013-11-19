@@ -35,17 +35,16 @@ class VgYoutube
     @details.duration
   end
 
-  def embed_url
-    @details.media_content.first.url if @details.noembed == false
+  def embed_url params
+    "http://www.youtube.com/embed/#{@video_id}#{"?#{params.map{|k,v| "#{k}=#{v}"}.join('&')}}" unless origin.nil?}" if @details.noembed == false
   end
 
-  # options
-  #   You can read more about the youtube player options in
-  #   http://code.google.com/intl/en/apis/youtube/player_parameters.html
-  #   Use them in options (ex {:rel => 0, :color1 => '0x333333'})
-  #
+  # Now we use the iframe API which tries to use an html5 player
+  # You can read more here: https://developers.google.com/youtube/iframe_api_reference
   def embed_html(width=425, height=344, options={}, params={})
-    "<object width='#{width}' height='#{height}'><param name='movie' value='#{embed_url}#{options.map {|k,v| "&#{k}=#{v}"}.join}'></param><param name='allowFullScreen' value='true'></param><param name='allowscriptaccess' value='always'></param>#{params.map{|k,v|"<param name='#{k}' value='#{v}'></param>"}.join}<embed src='#{embed_url}#{options.map {|k,v| "&#{k}=#{v}"}.join}' type='application/x-shockwave-flash' allowscriptaccess='always' allowfullscreen='true' width='#{width}' height='#{height}' #{params.map {|k,v| "#{k}=#{v}"}.join(" ")}></embed></object>" if @details.noembed == false
+    "<iframe id='player' type='text/html' width='#{width}' height='#{height}' src='#{embed_url params}' frameborder='0'></iframe>" if @details.noembed == false
+  end
+
   end
 
 
