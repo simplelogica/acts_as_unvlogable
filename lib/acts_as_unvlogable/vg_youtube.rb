@@ -36,15 +36,13 @@ class VgYoutube
   end
 
   def embed_url params
-    "http://www.youtube.com/embed/#{@video_id}#{"?#{params.map{|k,v| "#{k}=#{v}"}.join('&')}}" unless origin.nil?}" if @details.noembed == false
+    "http://www.youtube.com/embed/#{@video_id}#{"?#{params.map{|k,v| "#{k}=#{v}"}.join('&')}}"}" if @details.noembed == false
   end
 
   # Now we use the iframe API which tries to use an html5 player
   # You can read more here: https://developers.google.com/youtube/iframe_api_reference
   def embed_html(width=425, height=344, options={}, params={})
     "<iframe id='#{options[:id] || 'player'}' type='text/html' width='#{width}' height='#{height}' src='#{embed_url params}' frameborder='0'></iframe>" if @details.noembed == false
-  end
-
   end
 
 
