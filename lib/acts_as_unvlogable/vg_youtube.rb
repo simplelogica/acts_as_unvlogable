@@ -8,7 +8,10 @@ class VgYoutube
   def initialize(url=nil, options={})
     object = YouTubeIt::Client.new({})
     @url = url
+    # This line handles URL like http://www.youtube.com/watch?v=HtAXSpBM8XI
     @video_id = @url.query_param('v')
+    # This line handles URL like http://www.youtube.com/v/HtAXSpBM8XI
+    @video_id = @url.match(/www.youtube.com\/v\/(?<id>[^?]*)/)[:id] if @video_id.blank?
     begin
       @details = object.video_by(@video_id)
       raise if @details.blank?
