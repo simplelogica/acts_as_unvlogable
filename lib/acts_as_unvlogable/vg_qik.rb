@@ -22,8 +22,8 @@ class VgQik
   def thumbnail
     @page[0]['large_thumbnail_url']
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     "http://qik.com/swfs/qikPlayer5.swf?streamID=#{@page[0]['embed_html'].split("streamID=")[1].split("&")[0]}&amp;autoplay=false"
   end
 

@@ -23,8 +23,8 @@ class VgBlip
   def duration
     nil
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     emb = REXML::XPath.first(@feed, "//media:player")[0].to_s
     emb.split("src=\"")[1].split("\"")[0]
   end

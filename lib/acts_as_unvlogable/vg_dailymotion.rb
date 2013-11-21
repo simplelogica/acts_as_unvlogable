@@ -20,8 +20,8 @@ class VgDailymotion
   def thumbnail
     REXML::XPath.first(@feed, "//media:thumbnail").attributes['url'].gsub("preview_large", "preview_medium")
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     REXML::XPath.first(@feed, "//media:content[@type='application/x-shockwave-flash']").attributes['url']
   end
 

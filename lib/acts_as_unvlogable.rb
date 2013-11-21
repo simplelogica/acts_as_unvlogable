@@ -40,11 +40,11 @@ class UnvlogIt
   def duration # duration is in seconds
     @object.duration rescue nil
   end
-  
-  def embed_url
-    @object.embed_url rescue nil
+
+  def embed_url params = {}
+    @object.embed_url params rescue nil
   end
-  
+
   def video_id
     @object.video_id rescue nil
   end
