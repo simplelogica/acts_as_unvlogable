@@ -20,8 +20,8 @@ class VgCollegehumor
   def thumbnail
     REXML::XPath.first(@feed, "//video/thumbnail")[0]
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     "http://www.collegehumor.com/moogaloop/moogaloop.swf?clip_id=#{@video_id}&fullscreen=1"
   end
 

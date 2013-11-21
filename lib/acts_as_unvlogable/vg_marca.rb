@@ -24,8 +24,8 @@ class VgMarca
   def duration
     nil
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     "http://www.marca.com/componentes/flash/embed.swf?ba=0&cvol=1&bt=1&lg=1&vID=#{@video_id}&ba=1"
   end
 

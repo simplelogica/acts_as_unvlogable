@@ -18,7 +18,7 @@ class VgRutube
     "http://img.rutube.ru/thumbs/#{movie_hash[0,2]}/#{movie_hash[2,2]}/#{movie_hash}-#{size}.jpg"
   end
 
-  def embed_url
+  def embed_url params = {}
     # path to swf
     "http://video.rutube.ru/#{movie_hash}"
   end

@@ -22,8 +22,8 @@ class VgMetacafe
   def thumbnail
     "http://www.metacafe.com/thumb/#{@args[1]}.jpg"
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     "http://www.metacafe.com/fplayer/#{@args[1]}/#{@args[2]}.swf"
   end
 

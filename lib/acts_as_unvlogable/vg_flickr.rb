@@ -22,8 +22,8 @@ class VgFlickr
   def thumbnail
     @details.source('Small')
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     "http://www.flickr.com/apps/video/stewart.swf?v=63881&intl_lang=en-us&photo_secret=#{@details.secret}&photo_id=#{@video_id}"
   end
 

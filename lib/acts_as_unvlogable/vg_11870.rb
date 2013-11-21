@@ -23,8 +23,8 @@ class Vg11870
   def duration
     nil
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     query = @flashvars.map {|k,v| "&#{k}=#{v}"}
     "http://11870.com/multimedia/flvplayer.swf?#{query}"
   end

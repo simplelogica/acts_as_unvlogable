@@ -22,8 +22,8 @@ class VgDalealplay
   def thumbnail
     "http://images-00.dalealplay.com/contenidos2/#{@video_id}/captura.jpg"
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     @page.search("//link[@rel='video_src']").first.attributes["href"].sub("autoStart=true", "autoStart=false")
   end
 

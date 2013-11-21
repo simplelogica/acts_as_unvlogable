@@ -24,8 +24,8 @@ class VgMyspace
   def duration
     nil
   end
-  
-  def embed_url
+
+  def embed_url params = {}
     "http://lads.myspace.com/videos/vplayer.swf?m=#{REXML::XPath.first( @feed, "//myspace:itemID" )[0]}&v=2&type=video"
   end
 
